@@ -1,0 +1,95 @@
+
+/* Basic body styling */
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+/* Style for the navigation list, removing default list styling */
+.main-header nav ul {
+    list-style-type: none;
+}
+
+/* Style for each list item in the navigation */
+#nav-list .item {
+    display: inline;
+    margin-right: 10px;
+}
+
+/* Adds a border to the left of each navigation item, except the first */
+#nav-list .item + .item {
+    border-left: 1px solid black;
+}
+
+/* Adds content after links that start with 'http', indicating an external link */
+a[href^="http"]:after {
+    content: " (external link)";
+}
+
+/* Changes color of links on hover */
+a:hover {
+    color: red;
+}
+
+/* Bold style for the active link */
+.active {
+    font-weight: bold;
+}
+
+/* Basic style for articles in the content section */
+.content > .article {
+    border: 1px solid grey;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+/* Specific style for the heading of the first article */
+#first-article h2 {
+    color: green;
+}
+
+/* Background color for articles with a title containing the word 'Article' */
+.secondary[title~="Article"] {
+    background-color: lightblue;
+}
+
+/* Style for the info box */
+.info-box {
+    border: 2px dotted navy;
+    padding: 5px;
+}
+
+/* Changes color of links with a specific title on hover */
+.info-box p a[title|="More"]:hover {
+    color: purple;
+}
+
+/* Adds content before each paragraph in the footer */
+footer p::before {
+    content: "© ";
+}
+
+/* Specific color for paragraphs with class 'special' but not 'highlight' */
+.special:not(.highlight) {
+    color: darkmagenta;
+}
+
+/* Adds a top border to articles that follow another article */
+.article ~ .article {
+    border-top: 3px dashed orange;
+}
+
+/* Adds a globe emoji before links with class 'social' */
+.social:before {
+    content: "🌐 ";
+}
+
+/* Enlarges the first letter of elements with class 'highlight' and changes its color */
+.highlight:first-letter {
+    font-size: larger;
+    color: orange;
+}
+
+/* Italicizes the text inside 'highlight' class that is a descendant of 'aside' */
+aside .highlight {
+    font-style: italic;
+}

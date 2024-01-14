@@ -1,0 +1,113 @@
+
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+header, nav, main, footer {
+    padding: 1em;
+    border: 1px solid black;
+    margin-bottom: 1em;
+}
+
+/* Media Queries */
+
+/* Small devices (phones) */
+@media (max-width: 600px) {
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin-bottom: 1em;
+    }
+
+    .container {
+        width: 95%;
+    }
+}
+
+/* Medium devices (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 0;
+    }
+
+    header, main, footer {
+        text-align: center;
+    }
+}
+
+/* Large devices (desktops) */
+@media (min-width: 1025px) {
+    .container {
+        width: 60%;
+    }
+
+    header {
+        text-align: center;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+/* Orientation: Portrait */
+@media screen and (orientation: portrait) {
+    body {
+        background-color: lightblue;
+    }
+    header {
+        background-color: lightgreen;
+    }
+    footer {
+        background-color: lightcoral;
+    }
+}
+
+/* Orientation: Landscape */
+@media screen and (orientation: landscape) {
+    body {
+        background-color: lightyellow;
+    }
+    header {
+        background-color: lightpink;
+    }
+    footer {
+        background-color: lightgrey;
+    }
+}
+
+/* Print Mode */
+@media print {
+    body {
+        font-size: 12pt;
+        color: black;
+    }
+    header, footer {
+        display: none; /* Hide header and footer for printing */
+    }
+    nav {
+        display: none; /* Hide navigation menu for printing */
+    }
+    .container {
+        width: 100%;
+    }
+    main {
+        border: none;
+    }
+}

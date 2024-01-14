@@ -1,0 +1,38 @@
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(100px, 25%, 1fr), 1fr));
+    gap: 10px;
+}
+
+.grid-item {
+    background-color: lightblue;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+/* Media Query: Aspect Ratio */
+@media screen and (aspect-ratio: 1/1) {
+    body {
+        background-color: lightyellow;
+    }
+}
+
+/* Media Query: Width Range */
+@media screen and (min-width: 600px) and (max-width: 1200px) {
+    body {
+        background-color: lightgreen;
+    }
+}
+
+/* Container Query */
+@container (min-width: 500px) {
+    .grid-item {
+        background-color: lightcoral;
+    }
+}
