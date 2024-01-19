@@ -1,0 +1,44 @@
+body {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.carousel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  overflow: hidden;
+  background-color: #1e1e1e;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-content {
+  flex-grow: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.carousel-item {
+  flex: 0 0 100%;
+  display: none;
+  padding: 20px;
+  text-align: center;
+}
+
+.carousel-item.active {
+  display: block;
+}
+
+.carousel-button {
+  cursor: pointer;
+  padding: 10px;
+  background-color: #333333;
+  color: #ffffff;
+  border: none;
+  font-size: 24px;
+}
+
+.carousel-button:hover {
+  background-color: #454545;
+}
