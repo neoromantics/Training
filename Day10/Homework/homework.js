@@ -91,7 +91,39 @@ const isPrime = (num) => {
 
 // 7. Write a JavaScript function which accepts an argument and returns the type.
 // Note: There are six possible values that typeof returns: object, boolean, function, number, string, and undefined.
+const getType = (arg) => typeof arg;
+
+// console.log(getType());
 
 // 8. Write a JavaScript function which will take an array of numbers stored and find the second lowest and second greatest numbers, respectively.
 // Sample array: [1,2,3,4,5]
 // Expected Output: 2,4
+
+// const seconds = (arr) => [
+//   [...new Set(arr)].sort((a, b) => a - b)[1],
+//   [...new Set(arr)].sort((a, b) => a - b)[[...new Set(arr)].length - 2],
+// ];
+
+const seconds = (arr) => {
+  let greatest = Math.max(arr[0], arr[1]);
+  let lowest = Math.min(arr[0], arr[1]);
+  let secondGreatest = lowest;
+  let secondLowest = greatest;
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < lowest) {
+      secondLowest = lowest;
+      lowest = arr[i];
+    } else if (arr[i] > lowest && arr[i] < secondLowest) {
+      secondLowest = arr[i];
+    }
+    if (arr[i] > greatest) {
+      secondGreatest = greatest;
+      greatest = arr[i];
+    } else if (arr[i] < greatest && arr[i] > secondGreatest) {
+      secondGreatest = arr[i];
+    }
+  }
+  return [secondLowest, secondGreatest];
+};
+
+console.log(seconds([1, 1.5, 2, 3, 4, 5]));
