@@ -126,4 +126,4 @@ const seconds = (arr) => {
   return [secondLowest, secondGreatest];
 };
 
-console.log(seconds([1, 1.5, 2, 3, 4, 5]));
+// console.log(seconds([1, 1.5, 2, 3, 4, 5]));
