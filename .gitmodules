@@ -1,0 +1,3 @@
+[submodule "Day19/Day19"]
+	path = Day19/Day19
+	url = https://github.com/neoromantics/Training.git
