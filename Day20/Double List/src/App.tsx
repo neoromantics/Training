@@ -12,9 +12,16 @@ function App() {
   const handleClick = (
     moveFrom: ListItem[],
     moveTo: ListItem[],
+    setMoveFrom: React.Dispatch<React.SetStateAction<ListItem[]>>,
     setMoveTo: React.Dispatch<React.SetStateAction<ListItem[]>>
   ) => {
     const checkedItems: ListItem[] = moveFrom.filter((item) => item.isChecked);
+    setMoveFrom((prevs) =>
+      prevs.map((prev) => {
+        prev.isChecked = false;
+        return prev;
+      })
+    );
     setMoveTo([...moveTo, ...checkedItems]);
   };
 
@@ -25,7 +32,9 @@ function App() {
           <List items={list1} setList={setList1} />
         </div>
         <div>
-          <UpButton handleClick={() => handleClick(list2, list1, setList1)} />
+          <UpButton
+            handleClick={() => handleClick(list2, list1, setList2, setList1)}
+          />
         </div>
         <div className="row">
           <List items={list2} setList={setList2} />
