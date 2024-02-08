@@ -1,32 +1,33 @@
-import { Todo } from "../App";
+import React from "react";
 import ListItem from "./ListItem";
+import { Todo } from "../App";
 
 interface Props {
   todos: Todo[];
   selectItem: (id: string) => void;
-  selectAll: () => void;
+  selectAll: (selectAll: boolean) => void; // Adjusted to pass select all state
 }
 
 const List = ({ todos, selectItem, selectAll }: Props) => {
+  const handleSelectAll = (event: React.ChangeEvent<HTMLInputElement>) => {
+    selectAll(event.target.checked);
+  };
+
   return (
-    <div className="list-container">
-      <div className="list-title">
-        <label>
-          select all
-          <input
-            type="checkbox"
-            checked={todos.length !== 0 && todos.every((todo) => todo.selected)}
-            onChange={selectAll}
-          />
-        </label>
+    <div>
+      <div className="select-all-container">
+        <input
+          type="checkbox"
+          id="select-all"
+          onChange={handleSelectAll}
+          checked={todos.every((todo) => todo.selected)}
+        />
+        <label htmlFor="select-all" className="select-all-checkbox"></label>
+        <label htmlFor="select-all">Select All</label>
       </div>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id} className="list-item">
-            <ListItem todo={todo} selectItem={selectItem} />
-          </li>
-        ))}
-      </ul>
+      {todos.map((todo) => (
+        <ListItem key={todo.id} todo={todo} selectItem={selectItem} />
+      ))}
     </div>
   );
 };
