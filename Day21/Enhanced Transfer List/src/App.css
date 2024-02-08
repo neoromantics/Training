@@ -1,57 +1,84 @@
-/* Container styling with flexbox to center children */
-.lists-container {
-  display: flex; /* Use flexbox */
+
+/* EnhancedBasicApp.css - Expanded CSS for beginners with additional properties and selectors */
+
+/* Basic body styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* A common, readable font */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  background-color: #f0f0f0; /* A neutral background color for the app */
+  color: #333; /* Default text color */
+}
+
+/* Container for the entire app */
+.app-container {
+  display: flex; /* Use flexbox for the main layout */
   justify-content: center; /* Center children horizontally */
-  align-items: center; /* Center children vertically */
-  height: 100vh; /* Full viewport height */
-  background-color: #fafafa; /* Light background color */
+  gap: 20px; /* Space between the list containers */
+  padding: 20px; /* Padding around the content */
+  /* Add .app-container to the main div wrapping your list components */
 }
 
-/* Basic list styling */
-.list {
-  margin: 0 20px; /* Margin to separate lists if there are multiple */
-  padding: 20px; /* Padding inside the list for spacing */
-  border: 1px solid #e0e0e0; /* Simple border for definition */
-  border-radius: 5px; /* Rounded corners for a modern look */
-  background-color: #ffffff; /* White background for cleanliness */
+/* Style for individual list containers */
+.list-container {
+  background-color: #ffffff; /* White background for lists */
+  border: 1px solid #dddddd; /* Subtle border for the list container */
+  border-radius: 10px; /* Rounded corners for elegance */
+  padding: 10px; /* Padding inside the list containers */
+  width: 300px; /* Fixed width for the list containers */
+  /* Add .list-container to the divs that wrap each list */
 }
 
-/* Styling for each item in the list */
-.list-item {
-  padding: 10px 0; /* Padding for spacing between items */
-  border-bottom: 1px solid #f0f0f0; /* Light border for separation */
-}
-
-.list-item:last-child {
-  border-bottom: none; /* Remove bottom border from the last item */
-}
-
-/* Simple hover effect for list items */
-.list-item:hover {
-  background-color: #f9f9f9; /* Subtle change on hover */
-}
-
-/* Basic typography for list titles */
+/* Style for the list titles */
 .list-title {
-  margin-bottom: 20px; /* Space below the title */
-  font-size: 16px; /* Basic font size */
-  font-weight: bold; /* Bold for emphasis */
+  font-size: 1.2em; /* Larger text for list titles */
+  margin-bottom: 10px; /* Space below the title */
+  font-weight: bold; /* Make the title text bold */
+  /* Add .list-title to the elements that are your list titles */
 }
 
-/* Elegant button styling */
-.button {
-  padding: 10px 20px; /* Ample padding for a comfortable click area */
-  background-color: #007bff; /* A pleasant, eye-catching blue */
-  color: #ffffff; /* White text for contrast */
-  border: none; /* Remove default border */
-  border-radius: 5px; /* Rounded corners for a modern look */
-  font-size: 16px; /* Clear, readable text */
-  font-weight: 500; /* Slightly bolder than normal for emphasis */
+/* Style for the list items */
+.list-item {
+  margin: 5px 0; /* Margin above and below each item */
+  padding: 10px; /* Padding inside each item */
+  background-color: #e9e9e9; /* Light background for items */
+  border-radius: 5px; /* Rounded corners for items */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth background color change and slight movement on hover */
+  /* Add .list-item to your list item elements */
+}
+
+.list-item:hover {
+  background-color: #d9d9d9; /* Darker background when hovered */
+  transform: translateX(5px); /* Move item to the right when hovered */
+}
+
+/* Style for buttons */
+button {
+  padding: 10px 15px; /* Padding inside the buttons */
+  margin: 10px; /* Margin around buttons */
+  border: 1px solid #cccccc; /* Border for buttons */
+  border-radius: 5px; /* Rounded corners for buttons */
+  background-color: #5b6ef5; /* A nice blue for buttons */
+  color: white; /* White text on buttons */
+  font-weight: bold; /* Bold text for the button */
   cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
-  transition: background-color 0.3s; /* Smooth transition for hover effect */
+  transition: background-color 0.3s; /* Smooth background color change on hover */
+  /* Add a button class or use button elements directly */
 }
 
-/* Button hover effect */
-.button:hover {
-  background-color: #0056b3; /* Darker blue on hover for feedback */
+button:hover {
+  background-color: #4e5cd8; /* A darker blue on hover */
+}
+
+/* Responsive design adjustments for smaller screens */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column; /* Stack items vertically on small screens */
+    align-items: center; /* Center items vertically when stacked */
+  }
+
+  .list-container {
+    width: auto; /* Full width on smaller screens */
+    margin-bottom: 20px; /* Space between stacked list containers */
+  }
 }
