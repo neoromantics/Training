@@ -1,5 +1,5 @@
 import ListItem from "./ListItem";
-import { Todo } from "../App";
+import { Todo } from "./App";
 
 interface Props {
   todos: Todo[];

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import List from "./components/List";
-import UpButton from "./components/UpButton";
-import DownButton from "./components/DownButton";
+import List from "./List";
+import UpButton from "./UpButton";
+import DownButton from "./DownButton";
 
 export interface Todo {
   id: string;

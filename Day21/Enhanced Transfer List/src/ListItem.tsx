@@ -1,4 +1,4 @@
-import { Todo } from "../App";
+import { Todo } from "./App";
 
 interface Props {
   todo: Todo;
