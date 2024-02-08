@@ -3,7 +3,11 @@ interface Props {
 }
 
 const LeftButton = ({ moveLeft }: Props) => {
-  return <button onClick={moveLeft}>Move Left</button>;
+  return (
+    <button onClick={moveLeft} className="button">
+      Move Left
+    </button>
+  );
 };
 
 export default LeftButton;

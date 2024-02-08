@@ -9,17 +9,20 @@ interface Props {
 
 const List = ({ todos, selectItem, selectAll }: Props) => {
   return (
-    <ul>
-      <label>
-        select all
-        <input
-          type="checkbox"
-          checked={todos.length !== 0 && todos.every((todo) => todo.selected)}
-          onChange={selectAll}
-        />
-      </label>
+    <ul className="todo-list">
+      <div className="select-all">
+        <label>
+          select all
+          <input
+            type="checkbox"
+            checked={todos.length !== 0 && todos.every((todo) => todo.selected)}
+            onChange={selectAll}
+          />
+        </label>
+      </div>
+
       {todos.map((todo) => (
-        <li key={todo.id}>
+        <li key={todo.id} className="todo-list-item">
           <ListItem todo={todo} selectItem={selectItem} />
         </li>
       ))}

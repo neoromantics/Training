@@ -1,10 +1,57 @@
-.list {
-  margin: 0 20px; /* Adjust the 20px value to increase or decrease the space */
+/* Container styling with flexbox to center children */
+.lists-container {
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center children horizontally */
+  align-items: center; /* Center children vertically */
+  height: 100vh; /* Full viewport height */
+  background-color: #fafafa; /* Light background color */
 }
 
-.lists-container {
-  display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  height: 100vh; /* Take up the full viewport height */
+/* Basic list styling */
+.list {
+  margin: 0 20px; /* Margin to separate lists if there are multiple */
+  padding: 20px; /* Padding inside the list for spacing */
+  border: 1px solid #e0e0e0; /* Simple border for definition */
+  border-radius: 5px; /* Rounded corners for a modern look */
+  background-color: #ffffff; /* White background for cleanliness */
+}
+
+/* Styling for each item in the list */
+.list-item {
+  padding: 10px 0; /* Padding for spacing between items */
+  border-bottom: 1px solid #f0f0f0; /* Light border for separation */
+}
+
+.list-item:last-child {
+  border-bottom: none; /* Remove bottom border from the last item */
+}
+
+/* Simple hover effect for list items */
+.list-item:hover {
+  background-color: #f9f9f9; /* Subtle change on hover */
+}
+
+/* Basic typography for list titles */
+.list-title {
+  margin-bottom: 20px; /* Space below the title */
+  font-size: 16px; /* Basic font size */
+  font-weight: bold; /* Bold for emphasis */
+}
+
+/* Elegant button styling */
+.button {
+  padding: 10px 20px; /* Ample padding for a comfortable click area */
+  background-color: #007bff; /* A pleasant, eye-catching blue */
+  color: #ffffff; /* White text for contrast */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners for a modern look */
+  font-size: 16px; /* Clear, readable text */
+  font-weight: 500; /* Slightly bolder than normal for emphasis */
+  cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+/* Button hover effect */
+.button:hover {
+  background-color: #0056b3; /* Darker blue on hover for feedback */
 }

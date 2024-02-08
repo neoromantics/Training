@@ -6,7 +6,7 @@ interface Props {
 }
 const ListItem = ({ todo, selectItem }: Props) => {
   return (
-    <>
+    <div className="list-item">
       <input
         type="checkbox"
         checked={todo.selected}
@@ -14,7 +14,7 @@ const ListItem = ({ todo, selectItem }: Props) => {
       />
       <title>{todo.title}</title>
       {todo.title}
-    </>
+    </div>
   );
 };
 
