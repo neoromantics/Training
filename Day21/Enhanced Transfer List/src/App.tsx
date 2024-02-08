@@ -1,6 +1,5 @@
 import { useState } from "react";
 import List from "./components/List";
-import "./App.css";
 import UpButton from "./components/UpButton";
 import DownButton from "./components/DownButton";
 
