@@ -40,16 +40,17 @@ function App() {
   };
 
   const checkWin = () => {
+    let win = false;
     Patterns.forEach((currPattern) => {
       const firstPlayer = board[currPattern[0]];
-      if (firstPlayer === "") return false;
+      if (firstPlayer === "") return;
 
       if (currPattern.every((idx) => board[idx] === firstPlayer)) {
         setResult({ winner: player, state: "Won" });
-        return true;
+        win = true;
       }
     });
-    return false;
+    return win;
   };
 
   const checkIfTie = () => {
