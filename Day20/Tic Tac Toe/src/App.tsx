@@ -22,6 +22,9 @@ function App() {
   }, [result]);
 
   const chooseSquare = (square: number) => {
+    if (board[square] !== "") {
+      return;
+    }
     setBoard(
       board.map((val, idx) => {
         if (idx === square && val === "") {
@@ -37,28 +40,15 @@ function App() {
     Patterns.forEach((currPattern) => {
       const firstPlayer = board[currPattern[0]];
       if (firstPlayer === "") return;
-      let foundWinningPattern = true;
-      currPattern.forEach((idx) => {
-        if (board[idx] !== firstPlayer) {
-          foundWinningPattern = false;
-        }
-      });
 
-      if (foundWinningPattern) {
+      if (currPattern.every((idx) => board[idx] === firstPlayer)) {
         setResult({ winner: player, state: "Won" });
       }
     });
   };
 
   const checkIfTie = () => {
-    let filled = true;
-    board.forEach((square) => {
-      if (square === "") {
-        filled = false;
-      }
-    });
-
-    if (filled) {
+    if (board.every((square) => square !== "")) {
       setResult({ winner: "No One", state: "Tie" });
     }
   };
