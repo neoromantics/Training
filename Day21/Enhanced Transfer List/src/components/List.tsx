@@ -5,7 +5,7 @@ import { Todo } from "../App";
 interface Props {
   todos: Todo[];
   selectItem: (id: string) => void;
-  selectAll: (selectAll: boolean) => void; // Adjusted to pass select all state
+  selectAll: (selectAll: boolean) => void;
 }
 
 const List = ({ todos, selectItem, selectAll }: Props) => {
