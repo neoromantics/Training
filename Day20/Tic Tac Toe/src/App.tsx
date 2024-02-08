@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import Square from "./Components/Square";
+import Square from "./Square";
 import { Patterns } from "./Patterns";
 
 function App() {
