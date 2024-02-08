@@ -1,4 +1,3 @@
-import "../App.css";
 interface Props {
   val: string;
   chooseSquare: () => void;
