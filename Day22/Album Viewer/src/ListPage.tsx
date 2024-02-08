@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 
-interface Todo {
+export interface Todo {
+  fakeProperty: string;
+  userId: number;
   id: number;
   title: string;
   completed: boolean;
 }
 
-const List = () => {
+const ListPage = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -15,7 +18,7 @@ const List = () => {
     const fetchTodos = async () => {
       try {
         const response = await fetch(
-          "https://jsonplaceholder.typicode.com/todos"
+          "https://jsonplaceholder.typicode.com/albums"
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -38,12 +41,18 @@ const List = () => {
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>{todo.title}</li>
+        {todos.slice(0, 10).map((todo) => (
+          <li key={todo.id}>
+            <div>
+              <NavLink to={`/photo/${todo.id}`}>
+                {todo.id}: {todo.title}
+              </NavLink>
+            </div>
+          </li>
         ))}
       </ul>
     </div>
   );
 };
 
-export default List;
+export default ListPage;
