@@ -1,6 +1,5 @@
 import { useState } from "react";
 import List from "./components/List";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import LeftButton from "./components/LeftButton";
 import RightButton from "./components/RightButton";
