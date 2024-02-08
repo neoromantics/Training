@@ -1,14 +1,14 @@
 import { useState } from "react";
 import List from "./components/List";
 import "./App.css";
-import LeftButton from "./components/LeftButton";
-import RightButton from "./components/RightButton";
+import UpButton from "./components/UpButton";
+import DownButton from "./components/DownButton";
 
 export interface Todo {
   id: string;
   title: string;
   selected: boolean;
-  list: "LEFT" | "RIGHT";
+  list: "Up" | "Down";
 }
 
 const initialTodos: Todo[] = [
@@ -16,25 +16,25 @@ const initialTodos: Todo[] = [
     id: "1",
     title: "title 1",
     selected: false,
-    list: "LEFT",
+    list: "Up",
   },
   {
     id: "2",
     title: "title 2",
     selected: false,
-    list: "LEFT",
+    list: "Up",
   },
   {
     id: "3",
     title: "title 3",
     selected: false,
-    list: "RIGHT",
+    list: "Down",
   },
   {
     id: "4",
     title: "title 4",
     selected: false,
-    list: "RIGHT",
+    list: "Down",
   },
 ];
 
@@ -48,26 +48,26 @@ function App() {
     );
   };
 
-  const selectAll = (list: "LEFT" | "RIGHT") => {
+  const selectAll = (list: "Up" | "Down") => {
     let result =
-      list === "LEFT"
+      list === "Up"
         ? todos
-            .filter((todo) => todo.list === "LEFT")
+            .filter((todo) => todo.list === "Up")
             .every((todo) => todo.selected)
           ? todos.map((todo) =>
-              todo.list === "LEFT" ? { ...todo, selected: false } : todo
+              todo.list === "Up" ? { ...todo, selected: false } : todo
             )
           : todos.map((todo) =>
-              todo.list === "LEFT" ? { ...todo, selected: true } : todo
+              todo.list === "Up" ? { ...todo, selected: true } : todo
             )
         : todos
-            .filter((todo) => todo.list === "RIGHT")
+            .filter((todo) => todo.list === "Down")
             .every((todo) => todo.selected)
         ? todos.map((todo) =>
-            todo.list === "RIGHT" ? { ...todo, selected: false } : todo
+            todo.list === "Down" ? { ...todo, selected: false } : todo
           )
         : todos.map((todo) =>
-            todo.list === "RIGHT" ? { ...todo, selected: true } : todo
+            todo.list === "Down" ? { ...todo, selected: true } : todo
           );
 
     setTodos(result);
@@ -76,18 +76,18 @@ function App() {
   const moveLeft = () => {
     setTodos(
       todos.map((todo) =>
-        todo.list === "RIGHT" && todo.selected
-          ? { ...todo, list: "LEFT", selected: false }
+        todo.list === "Down" && todo.selected
+          ? { ...todo, list: "Up", selected: false }
           : todo
       )
     );
   };
 
-  const moveRight = () => {
+  const moveDown = () => {
     setTodos(
       todos.map((todo) =>
-        todo.list === "LEFT" && todo.selected
-          ? { ...todo, list: "RIGHT", selected: false }
+        todo.list === "Up" && todo.selected
+          ? { ...todo, list: "Down", selected: false }
           : todo
       )
     );
@@ -97,20 +97,20 @@ function App() {
     <div>
       <div>
         <List
-          todos={todos.filter((todo) => todo.list === "LEFT")}
+          todos={todos.filter((todo) => todo.list === "Up")}
           selectItem={selectItem}
-          selectAll={() => selectAll("LEFT")}
+          selectAll={() => selectAll("Up")}
         />
       </div>
       <div>
-        <LeftButton moveLeft={moveLeft} />
-        <RightButton moveRight={moveRight} />
+        <UpButton moveUp={moveLeft} />
+        <DownButton moveDown={moveDown} />
       </div>
       <div>
         <List
-          todos={todos.filter((todo) => todo.list === "RIGHT")}
+          todos={todos.filter((todo) => todo.list === "Down")}
           selectItem={selectItem}
-          selectAll={() => selectAll("RIGHT")}
+          selectAll={() => selectAll("Down")}
         />
       </div>
     </div>
