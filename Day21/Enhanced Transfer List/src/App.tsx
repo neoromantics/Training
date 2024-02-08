@@ -96,9 +96,7 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* Updated class name here */}
       <div className="list-container">
-        {/* Add .list-container class to this div */}
         <List
           todos={todos.filter((todo) => todo.list === "LEFT")}
           selectItem={selectItem}
@@ -106,12 +104,10 @@ function App() {
         />
       </div>
       <div className="button-container">
-        {/* If you have or want to add .button-container class for button styling */}
         <LeftButton moveLeft={moveLeft} />
         <RightButton moveRight={moveRight} />
       </div>
       <div className="list-container">
-        {/* Add .list-container class to this div */}
         <List
           todos={todos.filter((todo) => todo.list === "RIGHT")}
           selectItem={selectItem}

@@ -1,84 +1,67 @@
-
-/* EnhancedBasicApp.css - Expanded CSS for beginners with additional properties and selectors */
-
-/* Basic body styling */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* A common, readable font */
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
-  background-color: #f0f0f0; /* A neutral background color for the app */
-  color: #333; /* Default text color */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f0f0f0;
 }
 
-/* Container for the entire app */
 .app-container {
-  display: flex; /* Use flexbox for the main layout */
-  justify-content: center; /* Center children horizontally */
-  gap: 20px; /* Space between the list containers */
-  padding: 20px; /* Padding around the content */
-  /* Add .app-container to the main div wrapping your list components */
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 20px;
 }
 
-/* Style for individual list containers */
 .list-container {
-  background-color: #ffffff; /* White background for lists */
-  border: 1px solid #dddddd; /* Subtle border for the list container */
-  border-radius: 10px; /* Rounded corners for elegance */
-  padding: 10px; /* Padding inside the list containers */
-  width: 300px; /* Fixed width for the list containers */
-  /* Add .list-container to the divs that wrap each list */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  width: 45%;
+  max-width: 300px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Style for the list titles */
 .list-title {
-  font-size: 1.2em; /* Larger text for list titles */
-  margin-bottom: 10px; /* Space below the title */
-  font-weight: bold; /* Make the title text bold */
-  /* Add .list-title to the elements that are your list titles */
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-/* Style for the list items */
 .list-item {
-  margin: 5px 0; /* Margin above and below each item */
-  padding: 10px; /* Padding inside each item */
-  background-color: #e9e9e9; /* Light background for items */
-  border-radius: 5px; /* Rounded corners for items */
-  transition: background-color 0.3s, transform 0.3s; /* Smooth background color change and slight movement on hover */
-  /* Add .list-item to your list item elements */
+  padding: 10px;
+  margin: 8px 0;
+  background-color: #e9e9e9;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
-.list-item:hover {
-  background-color: #d9d9d9; /* Darker background when hovered */
-  transform: translateX(5px); /* Move item to the right when hovered */
+.button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
-/* Style for buttons */
 button {
-  padding: 10px 15px; /* Padding inside the buttons */
-  margin: 10px; /* Margin around buttons */
-  border: 1px solid #cccccc; /* Border for buttons */
-  border-radius: 5px; /* Rounded corners for buttons */
-  background-color: #5b6ef5; /* A nice blue for buttons */
-  color: white; /* White text on buttons */
-  font-weight: bold; /* Bold text for the button */
-  cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
-  transition: background-color 0.3s; /* Smooth background color change on hover */
-  /* Add a button class or use button elements directly */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #5b6ef5;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-button:hover {
-  background-color: #4e5cd8; /* A darker blue on hover */
-}
-
-/* Responsive design adjustments for smaller screens */
 @media (max-width: 768px) {
   .app-container {
-    flex-direction: column; /* Stack items vertically on small screens */
-    align-items: center; /* Center items vertically when stacked */
+    flex-direction: column;
+    align-items: center;
   }
 
-  .list-container {
-    width: auto; /* Full width on smaller screens */
-    margin-bottom: 20px; /* Space between stacked list containers */
+  .list-container,
+  .button-container {
+    width: 100%;
+    max-width: none;
   }
 }
