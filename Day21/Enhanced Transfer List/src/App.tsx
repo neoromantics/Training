@@ -94,19 +94,19 @@ function App() {
   };
 
   return (
-    <div className="app-container">
-      <div className="list-container">
+    <div>
+      <div>
         <List
           todos={todos.filter((todo) => todo.list === "LEFT")}
           selectItem={selectItem}
           selectAll={() => selectAll("LEFT")}
         />
       </div>
-      <div className="button-container">
+      <div>
         <LeftButton moveLeft={moveLeft} />
         <RightButton moveRight={moveRight} />
       </div>
-      <div className="list-container">
+      <div>
         <List
           todos={todos.filter((todo) => todo.list === "RIGHT")}
           selectItem={selectItem}

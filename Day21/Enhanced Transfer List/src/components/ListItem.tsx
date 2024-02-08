@@ -6,18 +6,18 @@ interface Props {
 }
 
 const ListItem = ({ todo, selectItem }: Props) => {
-  const handleItemClick = () => {
-    selectItem(todo.id);
-  };
+  const handleItemClick = () => {};
 
   return (
-    <div
-      className={`list-item ${todo.selected ? "selected" : ""}`}
-      onClick={handleItemClick}
-    >
-      <span className="checkmark"></span>
-      <p>{todo.title}</p>
-    </div>
+    <>
+      <input
+        type="checkbox"
+        onChange={() => selectItem(todo.id)}
+        checked={todo.selected}
+        onClick={handleItemClick}
+      />
+      <span>{todo.title}</span>
+    </>
   );
 };
 
