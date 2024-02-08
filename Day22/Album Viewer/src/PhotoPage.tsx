@@ -31,7 +31,7 @@ const PhotoPage = () => {
     };
 
     fetchPhotos();
-  }, [params.id]); // Add params.id as a dependency
+  }, [params.id]);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
