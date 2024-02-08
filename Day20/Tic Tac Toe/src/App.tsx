@@ -11,12 +11,7 @@ function App() {
   useEffect(() => {
     checkWin();
     checkIfTie();
-
-    if (player === "X") {
-      setPlayer("O");
-    } else {
-      setPlayer("X");
-    }
+    setPlayer(player === "X" ? "O" : "X");
   }, [board]);
 
   useEffect(() => {
