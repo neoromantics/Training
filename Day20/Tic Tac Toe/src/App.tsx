@@ -9,8 +9,11 @@ function App() {
   const [result, setResult] = useState({ winner: "none", state: "none" });
 
   useEffect(() => {
-    checkWin();
-    checkIfTie();
+    let win = checkWin();
+    if (!win) {
+      checkIfTie();
+    }
+
     setPlayer(player === "X" ? "O" : "X");
   }, [board]);
 
@@ -39,12 +42,14 @@ function App() {
   const checkWin = () => {
     Patterns.forEach((currPattern) => {
       const firstPlayer = board[currPattern[0]];
-      if (firstPlayer === "") return;
+      if (firstPlayer === "") return false;
 
       if (currPattern.every((idx) => board[idx] === firstPlayer)) {
         setResult({ winner: player, state: "Won" });
+        return true;
       }
     });
+    return false;
   };
 
   const checkIfTie = () => {
