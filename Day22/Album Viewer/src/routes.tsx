@@ -9,7 +9,7 @@ export default createBrowserRouter([
     element: <HomePage />,
     children: [
       { index: true, element: <ListPage /> },
-      { path: "photo/:id", element: <PhotoPage /> },
+      { path: ":id", element: <PhotoPage /> },
     ],
   },
 ]);

@@ -41,7 +41,7 @@ const ListPage = () => {
         {albums.slice(0, 10).map((album) => (
           <li key={album.id}>
             <div>
-              <NavLink to={`/photo/${album.id}`}>
+              <NavLink to={`/${album.id}`}>
                 {album.id}: {album.title}
               </NavLink>
             </div>
