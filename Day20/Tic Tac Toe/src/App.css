@@ -1,15 +1,15 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: rgb(25, 21, 21);
+}
+
 .App {
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-body {
-  padding: 0;
-  margin: 0;
-  background-color: rgb(25, 21, 21);
 }
 
 .board {
@@ -30,15 +30,15 @@ body {
 .square {
   flex: 33%;
   height: 100%;
-  border: 1px solid black;
+  border: 3px solid black;
   cursor: pointer;
   display: grid;
   place-items: center;
-  font-size: 30px;
+  font-size: 90px;
   color: black;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .square:active {
-  background-color: #64f4c4;
+  background-color: #55bb99;
 }
