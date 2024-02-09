@@ -7,7 +7,7 @@ export interface Album {
 }
 
 const ListPage = () => {
-  const [Albums, setAlbums] = useState<Album[]>([]);
+  const [albums, setAlbums] = useState<Album[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -38,7 +38,7 @@ const ListPage = () => {
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       <ul>
-        {Albums.slice(0, 10).map((album) => (
+        {albums.slice(0, 10).map((album) => (
           <li key={album.id}>
             <div>
               <NavLink to={`/photo/${album.id}`}>
