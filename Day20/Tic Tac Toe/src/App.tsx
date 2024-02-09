@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Square from "./Square";
 import { Patterns } from "./Patterns";
 
@@ -8,6 +8,11 @@ function App() {
   const [player, setPlayer] = useState("O");
   const [result, setResult] = useState({ winner: "none", state: "none" });
 
+  // To make sure the useEffect is called only if the element of the board changes.
+  const boardAfterMove = useMemo(() => {
+    return board;
+  }, [...board]);
+
   useEffect(() => {
     let win = checkWin();
     if (!win) {
@@ -15,7 +20,7 @@ function App() {
     }
 
     setPlayer(player === "X" ? "O" : "X");
-  }, [board]);
+  }, [boardAfterMove]);
 
   useEffect(() => {
     if (result.state !== "none") {
@@ -25,9 +30,6 @@ function App() {
   }, [result]);
 
   const chooseSquare = (square: number) => {
-    if (board[square] !== "") {
-      return;
-    }
     setBoard(
       board.map((val, idx) => {
         if (idx === square && val === "") {
