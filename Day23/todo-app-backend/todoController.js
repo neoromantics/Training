@@ -1,80 +1,47 @@
-let todos = [];
+const Todo = require("./todo");
 
-const createTodo = (req, res) => {
+exports.getAllTodos = async (req, res) => {
+  const todos = await Todo.find();
+  res.send(todos);
+};
+
+exports.addTodo = async (req, res) => {
+  let todo = new Todo(req.body);
+  todo = await todo.save();
+  res.send(todo);
+};
+
+exports.getTodoById = async (req, res) => {
   try {
-    const { title, description } = req.body;
-    if (!title || !description) {
-      return res
-        .status(400)
-        .send({ message: "Title and description are required." });
-    }
-    const newTodo = { id: todos.length + 1, title, description };
-    todos.push(newTodo);
-    res.status(201).send(newTodo);
+    const todo = await Todo.findById(req.params.id);
+    if (!todo)
+      return res.status(404).send("The todo with the given ID was not found.");
+    res.send(todo);
   } catch (error) {
-    res
-      .status(500)
-      .send({ message: "An error occurred while creating the todo." });
+    res.status(404).send("The todo with the given ID was not found.");
   }
 };
 
-const getAllTodos = (req, res) => {
-  res.status(200).send(todos);
-};
-
-const getTodoById = (req, res) => {
+exports.updateTodo = async (req, res) => {
   try {
-    const todo = todos.find((t) => t.id === parseInt(req.params.id));
-    if (!todo) {
-      return res.status(404).send({ message: "Todo not found" });
-    }
-    res.status(200).send(todo);
+    const todo = await Todo.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+    if (!todo)
+      return res.status(404).send("The todo with the given ID was not found.");
+    res.send(todo);
   } catch (error) {
-    res
-      .status(500)
-      .send({ message: "An error occurred while retrieving the todo." });
+    res.status(404).send("The todo with the given ID was not found.");
   }
 };
 
-const updateTodo = (req, res) => {
+exports.deleteTodo = async (req, res) => {
   try {
-    const todo = todos.find((t) => t.id === parseInt(req.params.id));
-    if (!todo) {
-      return res.status(404).send({ message: "Todo not found" });
-    }
-
-    const { title, description } = req.body;
-    if (title !== undefined) todo.title = title;
-    if (description !== undefined) todo.description = description;
-
-    res.status(200).send(todo);
+    const todo = await Todo.findByIdAndRemove(req.params.id);
+    if (!todo)
+      return res.status(404).send("The todo with the given ID was not found.");
+    res.send(todo);
   } catch (error) {
-    res
-      .status(500)
-      .send({ message: "An error occurred while updating the todo." });
+    res.status(404).send("The todo with the given ID was not found.");
   }
-};
-
-const deleteTodo = (req, res) => {
-  try {
-    const index = todos.findIndex((t) => t.id === parseInt(req.params.id));
-    if (index === -1) {
-      return res.status(404).send({ message: "Todo not found" });
-    }
-
-    todos.splice(index, 1);
-    res.status(204).send();
-  } catch (error) {
-    res
-      .status(500)
-      .send({ message: "An error occurred while deleting the todo." });
-  }
-};
-
-module.exports = {
-  createTodo,
-  getAllTodos,
-  getTodoById,
-  updateTodo,
-  deleteTodo,
 };

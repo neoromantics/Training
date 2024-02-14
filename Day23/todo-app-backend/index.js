@@ -1,19 +1,21 @@
 const express = require("express");
-const todoController = require("./todoController");
-require("dotenv").config();
-
-const port = process.env.PORT || 3000;
+const mongoose = require("mongoose");
+const todoRoutes = require("./todoRoutes");
 
 const app = express();
+const port = process.env.PORT || 3000;
+
+mongoose
+  .connect("mongodb://localhost/todoApp", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("Connected to MongoDB..."))
+  .catch((err) => console.error("Could not connect to MongoDB...", err));
 
 app.use(express.json());
-
-app.post("/todos", todoController.createTodo);
-app.get("/todos", todoController.getAllTodos);
-app.get("/todos/:id", todoController.getTodoById);
-app.put("/todos/:id", todoController.updateTodo);
-app.delete("/todos/:id", todoController.deleteTodo);
+app.use("/todos", todoRoutes);
 
 app.listen(port, () => {
-  console.log(`Todo app backend listening at http://localhost:${port}`);
+  console.log(`Listening on port ${port}...`);
 });
