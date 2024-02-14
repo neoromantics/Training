@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const todoController = require("./todoController"); // Adjust path as necessary
+const todoController = require("./todoController");
 
 router.get("/", todoController.getAllTodos);
 router.post("/", todoController.addTodo);
